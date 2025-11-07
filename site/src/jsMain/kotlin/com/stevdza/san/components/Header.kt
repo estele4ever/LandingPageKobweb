@@ -30,21 +30,31 @@ import org.jetbrains.compose.web.css.px
 @Composable
 fun Header(){
 
-    val breakpoint by rememberBreakpoint()
+    val breakpoint = rememberBreakpoint()
     Row(modifier = Modifier.fillMaxWidth(if(breakpoint > Breakpoint.MD) 80.percent else 90.percent)
         .margin(topBottom = 50.px),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ){
         LeftSide(breakpoint)
-        RigthSize()
+        if(breakpoint > Breakpoint.MD) {
+            RigthSize()
+        }
     }
 }
 
 @Composable
 fun LeftSide(breakpoint: Breakpoint){
 
-    Row(modifier = Modifier.fillMaxWidth(if(breakpoint > Breakpoint.MD) 80.percent else 90.percent) ){
+    Row(verticalAlignment = Alignment.CenterVertically){
+        if(breakpoint <= Breakpoint.MD) {
+
+            FaBars(
+                modifier = Modifier.margin(right = 15.px),
+                size = IconSize.XL
+                )
+        }
+
         Image(modifier = LogoStyle.toModifier(),
             src = Res.Image.logo,
             description = "logo description"

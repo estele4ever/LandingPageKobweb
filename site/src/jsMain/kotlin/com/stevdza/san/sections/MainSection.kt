@@ -7,6 +7,7 @@ package com.stevdza.san.sections
 import androidx.compose.runtime.Composable
 import com.stevdza.san.util.Constants.SECTION_WIDTH
 import com.stevdza.san.util.Res
+import com.stevdza.san.components.SocialBar
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -36,7 +37,7 @@ fun MainSection(){
     Box(modifier = Modifier.maxWidth(SECTION_WIDTH.px),
         contentAlignment = Alignment.TopCenter) {
         MainBackground()
-
+    MainContent()
     }
 }
 
@@ -49,4 +50,15 @@ fun MainBackground(){
         modifier = Modifier.fillMaxSize()
             .objectFit(ObjectFit.Cover)
     )
+}
+
+@Composable
+fun MainContent(){
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Header()
+        SocialBar()
+    }
 }
