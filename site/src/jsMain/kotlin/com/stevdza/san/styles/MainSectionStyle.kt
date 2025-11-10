@@ -50,3 +50,30 @@ val SocialLinkStyle = CssStyle()
         Modifier.color(Theme.Primary.rgb)
     }
 }
+
+val MainSectionStyle = CssStyle()
+{
+    base{
+        Modifier.width(100.px)
+            .transition(Transition.of(property = "width", duration = 200.ms))
+    }
+    hover{
+        Modifier.width(120.px)
+    }
+}
+
+@OptIn(ExperimentalComposeWebApi::class)
+val MainImageStyle = CssStyle {
+    base {
+        Modifier
+            .styleModifier {
+                filter { grayscale(100.percent) }
+            }
+            .transition(Transition.of(property = "filter", duration = 200.ms))
+    }
+    hover {
+        Modifier.styleModifier {
+            filter { grayscale(0.percent) }
+        }
+    }
+}

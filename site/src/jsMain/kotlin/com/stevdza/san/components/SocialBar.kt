@@ -6,8 +6,7 @@ import androidx.compose.runtime.Composable
 import com.stevdza.san.util.Constants.SECTION_WIDTH
 import com.stevdza.san.util.Res
 import com.stevdza.san.models.Theme
-import com.stevdza.san.styles.
-modifier = SocialLinkStyle
+import com.stevdza.san.styles.SocialLinkStyle
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -59,7 +58,8 @@ fun SocialBar(){
 @Composable
 private fun SocialLink(){
         Link(
-    path = WEB_SITE
+        path = WEB_SITE,
+            //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
         ){
         FaFacebook(
             modifier = SocialLinkStyle.toModifier()
@@ -68,7 +68,8 @@ private fun SocialLink(){
         )}
 
     Link(
-        path = WEB_SITE
+        path = WEB_SITE,
+        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
     ){
         FaTwitter(
             modifier = SocialLinkStyle.toModifier()
@@ -77,7 +78,8 @@ private fun SocialLink(){
         )}
 
     Link(
-        path = WEB_SITE
+        path = WEB_SITE,
+        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
     ){
         FaInstagram(
             modifier = SocialLinkStyle.toModifier()
@@ -86,11 +88,11 @@ private fun SocialLink(){
         )}
 
     Link(
-        path = WEB_SITE
+        path = WEB_SITE,
+        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
     ){
         FaLinkedin(
-            modifier = SocialLinkStyle.toModifier()
-                .margin(bottom = 40.px),
+            modifier = SocialLinkStyle.toModifier(),
             size = IconSize.LG
         )
     }
