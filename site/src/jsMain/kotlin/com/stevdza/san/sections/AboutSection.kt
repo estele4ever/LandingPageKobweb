@@ -2,12 +2,12 @@ package com.stevdza.san.sections
 
 
 import androidx.compose.runtime.*
-//import com.stevdza.san.components.SectionTitle
+import com.stevdza.san.components.SectionTitle
 import com.stevdza.san.components.SkillBar
 import com.stevdza.san.models.Section
-//import com.stevdza.san.models.Skill
+import com.stevdza.san.models.Skill
 import com.stevdza.san.models.Theme
-//import com.stevdza.san.styles.AboutImageStyle
+import com.stevdza.san.styles.AboutImageStyle
 //import com.stevdza.san.styles.AboutTextStyle
 import com.stevdza.san.util.Constants.FONT_FAMILY
 import com.stevdza.san.util.Constants.LOREM_IPSUM_SHORT
@@ -42,6 +42,64 @@ fun AboutSection(){
         .maxWidth(SECTION_WIDTH.px)
         .padding(topBottom = 150.px),
         contentAlignment = Alignment.TopCenter) {
-        SkillBar(name = "Creative")
+
+        AboutContent()
+    }
+}
+
+@Composable
+fun AboutContent(){
+    val breakpoint = rememberBreakpoint()
+
+    Column(
+        modifier = Modifier.fillMaxSize(if(breakpoint >= Breakpoint.MD) 100.percent else 90.percent)
+            .maxWidth(1200.px),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        SimpleGrid(
+            numColumns = numColumns(base = 1,md = 2)
+        ){
+            AboutImage()
+            AboutMe()
+        }
+
+    }
+}
+
+@Composable
+fun AboutImage(){
+    Box(modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center) {
+        Image(src = Res.Image.about_image,
+            description = "main description",
+            modifier = AboutImageStyle.toModifier().fillMaxWidth()
+        )
+    }
+}
+
+@Composable
+fun AboutMe(){
+    Column(
+        modifier = Modifier.fillMaxWidth()
+            .maxWidth(1200.px),
+        verticalArrangement = Arrangement.Center
+    ){
+        SectionTitle(section = Section.About)
+        P(
+            attrs = Modifier.margin(topBottom = 20.px)
+                .maxWidth(500.px)
+                .fontSize( 18.px)
+                .fontFamily(FONT_FAMILY)
+                .fontStyle(FontStyle.Italic)
+                .fontWeight(FontWeight.Normal)
+                .color(Theme.Primary.rgb)
+                .toAttrs()
+        ){
+            Text(LOREM_IPSUM_SHORT)
+        }
+        Skill.values().forEach{skill->
+            SkillBar(name = skill.title,
+                percentage = skill.percentage)
+        }
     }
 }

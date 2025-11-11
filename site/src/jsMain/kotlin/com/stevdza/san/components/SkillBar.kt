@@ -54,7 +54,7 @@ fun SkillBar(name: String,
             }
 
             Box(
-                modifier = Modifier.fillMaxWidh()
+                modifier = Modifier.fillMaxWidth()
             ){
                 Box(
                     modifier = Modifier.fillMaxWidth()

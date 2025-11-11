@@ -105,7 +105,7 @@ fun MainText(breakpoint: Breakpoint){
                     .color(Theme.Primary.rgb)
                     .toAttrs()
             ){
-                Text("hi, here")
+                Text("Hello, i'm")
             }
 
             P(
@@ -116,7 +116,7 @@ fun MainText(breakpoint: Breakpoint){
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ){
-                Text("I'm NGNEMIE estele")
+                Text("NGNEMIE estele")
             }
 
             P(
@@ -152,7 +152,7 @@ fun MainText(breakpoint: Breakpoint){
                 Link(
                     modifier = Modifier.color(Colors.White)
                         .textDecorationLine(TextDecorationLine.None),
-                    text = "hire me",
+                    text = "Hire me",
                     path = Section.Contact.path
                 )
             }

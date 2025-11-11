@@ -22,6 +22,7 @@ fun HomePage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         MainSection()
+        AboutSection()
         //Header()
     }
 }

@@ -29,12 +29,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
-import com.varabyte.kobweb.silk.components.icons.fa.FaFacebook
-import com.varabyte.kobweb.silk.components.icons.fa.FaTwitter
-import com.varabyte.kobweb.silk.components.icons.fa.FaInstagram
-import com.varabyte.kobweb.silk.components.icons.fa.FaLinkedin
-import com.varabyte.kobweb.silk.components.icons.fa.IconSize
+import com.varabyte.kobweb.silk.components.icons.fa.*
 import com.stevdza.san.util.Constants.WEB_SITE
+import com.varabyte.kobweb.navigation.OpenLinkStrategy
 
 
 
@@ -59,7 +56,7 @@ fun SocialBar(){
 private fun SocialLink(){
         Link(
         path = WEB_SITE,
-            //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
+            //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
         ){
         FaFacebook(
             modifier = SocialLinkStyle.toModifier()
@@ -69,7 +66,7 @@ private fun SocialLink(){
 
     Link(
         path = WEB_SITE,
-        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
+        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaTwitter(
             modifier = SocialLinkStyle.toModifier()
@@ -79,7 +76,7 @@ private fun SocialLink(){
 
     Link(
         path = WEB_SITE,
-        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
+        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaInstagram(
             modifier = SocialLinkStyle.toModifier()
@@ -89,7 +86,7 @@ private fun SocialLink(){
 
     Link(
         path = WEB_SITE,
-        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB_FOREGROUND
+        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaLinkedin(
             modifier = SocialLinkStyle.toModifier(),

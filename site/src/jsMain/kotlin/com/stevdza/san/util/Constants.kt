@@ -19,5 +19,6 @@ object Res{
         const val background = "background.svg"
         const val logo = "logo.svg"
         const val main_image = "main_image.png"
+        const val about_image = "about_image.png"
     }
 }
