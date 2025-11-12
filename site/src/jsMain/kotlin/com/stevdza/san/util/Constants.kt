@@ -21,4 +21,12 @@ object Res{
         const val main_image = "main_image.png"
         const val about_image = "about_image.png"
     }
+    object Icon{
+        const val android = "android_icon.svg"
+        const val apple = "apple_icon.svg"
+        const val business = "business_icon.png"
+        const val design = "design_icon.png"
+        const val seo = "seo_icon.png"
+        const val web = "web_icon.png"
+    }
 }

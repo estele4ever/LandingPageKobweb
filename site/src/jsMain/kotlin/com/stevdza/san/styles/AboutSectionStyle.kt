@@ -7,8 +7,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.rotate
 import com.varabyte.kobweb.compose.ui.modifiers.transition
+import com.varabyte.kobweb.compose.ui.modifiers.transform
 import com.varabyte.kobweb.compose.css.Transition
-import com.varabyte.kobweb.compose.css.Transform
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.selectors.hover
 import com.varabyte.kobweb.silk.style.CssStyle
@@ -18,7 +18,7 @@ import org.jetbrains.compose.web.css.*
 
 
 
-/*
+@OptIn(ExperimentalComposeWebApi::class)
 val AboutImageStyle  = CssStyle{
     base {
         Modifier
@@ -36,25 +36,16 @@ val AboutImageStyle  = CssStyle{
             .borderRadius(r = 100.px)
             .rotate(10.deg)
     }
-}*/
-
-
-val AboutImageStyle = CssStyle {
-    base {
-        Modifier
-            .styleModifier {
-                property("filter", "grayscale(100%)")
-            }
-            .borderRadius(0.px)
-            .transform { rotate(0.deg) }
-            .transition(com.varabyte.kobweb.compose.css.Transition.of(property = "all", duration = 200.ms))
-    }
-    hover {
-        Modifier
-            .styleModifier {
-                property("filter", "grayscale(0%)")
-            }
-            .borderRadius(100.px)
-            .transform { rotate(10.deg) }
-    }
 }
+
+
+val AboutTextStyle  = CssStyle{
+    base {
+        Modifier.opacity(50.percent)
+            .transition(Transition.of(property = "opacity", duration = 200.ms))
+    }
+
+    hover{
+    Modifier.opacity(100.percent)
+
+    }}

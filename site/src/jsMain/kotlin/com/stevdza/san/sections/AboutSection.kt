@@ -8,13 +8,13 @@ import com.stevdza.san.models.Section
 import com.stevdza.san.models.Skill
 import com.stevdza.san.models.Theme
 import com.stevdza.san.styles.AboutImageStyle
-//import com.stevdza.san.styles.AboutTextStyle
+import com.stevdza.san.styles.AboutTextStyle
 import com.stevdza.san.util.Constants.FONT_FAMILY
 import com.stevdza.san.util.Constants.LOREM_IPSUM_SHORT
 import com.stevdza.san.util.Constants.SECTION_WIDTH
-//import com.stevdza.san.util.ObserveViewportEntered
+import com.stevdza.san.util.ObserveViewportEntered
 import com.stevdza.san.util.Res
-//import com.stevdza.san.util.animateNumbers
+import com.stevdza.san.util.animateNumbers
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -56,7 +56,7 @@ fun AboutContent(){
             .maxWidth(1200.px),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        SimpleGrid(
+        SimpleGrid(modifier = Modifier.fillMaxWidth(if(breakpoint >= Breakpoint.MD) 90.px else 100.px),
             numColumns = numColumns(base = 1,md = 2)
         ){
             AboutImage()
@@ -72,34 +72,62 @@ fun AboutImage(){
         contentAlignment = Alignment.Center) {
         Image(src = Res.Image.about_image,
             description = "main description",
-            modifier = AboutImageStyle.toModifier().fillMaxWidth()
+            modifier = AboutImageStyle.toModifier().fillMaxWidth(80.percent)
         )
     }
 }
 
 @Composable
 fun AboutMe(){
+
+    val scope = rememberCoroutineScope()
+    var viewportEntered by remember { mutableStateOf(false) }
+    val animatedPercentage = remember { mutableStateListOf(0, 0, 0, 0, 0) }
+
+    ObserveViewportEntered(
+        sectionId = Section.About.id,
+        distanceFromTop = 300.0,
+        onViewportEntered = {
+            viewportEntered = true
+            Skill.entries.forEach { skill ->
+                scope.launch {
+                    animateNumbers(
+                        number = skill.percentage.value.toInt(),
+                        onUpdate = {
+                            animatedPercentage[skill.ordinal] = it
+                        }
+                    )
+                }
+            }
+        }
+    )
+
     Column(
         modifier = Modifier.fillMaxWidth()
             .maxWidth(1200.px),
         verticalArrangement = Arrangement.Center
     ){
-        SectionTitle(section = Section.About)
+        SectionTitle(
+            section = Section.About,
+            alignment = Alignment.CenterHorizontally)
         P(
-            attrs = Modifier.margin(topBottom = 20.px)
+            attrs = AboutTextStyle.toModifier()
+                .margin(topBottom = 25.px)
                 .maxWidth(500.px)
                 .fontSize( 18.px)
                 .fontFamily(FONT_FAMILY)
                 .fontStyle(FontStyle.Italic)
                 .fontWeight(FontWeight.Normal)
-                .color(Theme.Primary.rgb)
+                .color(Theme.Secondary.rgb)
                 .toAttrs()
         ){
             Text(LOREM_IPSUM_SHORT)
         }
         Skill.values().forEach{skill->
             SkillBar(name = skill.title,
-                percentage = skill.percentage)
+                index = skill.ordinal,
+                percentage = if(viewportEntered) skill.percentage else 0.percent),
+                animatedPercentage = if(viewportEntered) animatedPercentage[skill.ordinal] else 0
         }
     }
 }

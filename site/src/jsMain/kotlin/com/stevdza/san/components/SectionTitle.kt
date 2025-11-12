@@ -34,9 +34,11 @@ fun SectionTitle(
         P(
             attrs = Modifier
                 .fillMaxWidth()
-                .textAlign(
-                    if(alignment == Alignment.CenterHorizontally) TextAlign.Center else TextAlign.Start
-                )
+                .textAlign(when(alignment){
+                    Alignment.CenterHorizontally -> TextAlign.Center
+                    Alignment.End -> TextAlign.End
+                    else -> TextAlign.Start
+                })
                 .margin(topBottom = 0.px)
                 .fontFamily(FONT_FAMILY)
                 .fontSize( 25.px)
@@ -49,9 +51,11 @@ fun SectionTitle(
         P(
             attrs = Modifier
                 .fillMaxWidth()
-                .textAlign(
-                    if(alignment == Alignment.CenterHorizontally) TextAlign.Center else TextAlign.Start
-                )
+                .textAlign(when(alignment){
+                    Alignment.CenterHorizontally -> TextAlign.Center
+                    Alignment.End -> TextAlign.End
+                    else -> TextAlign.Start
+                })
                 .margin(top = 0.px, bottom = 10.px)
                 .fontFamily(FONT_FAMILY)
                 .fontSize( 40.px)

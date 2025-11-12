@@ -64,8 +64,8 @@ fun MainContent(){
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
+        horizontalAlignment = Alignment.CenterHorizontally
+        //verticalArrangement = Arrangement.SpaceBetween
     ){
         Header()
         //SocialBar()
@@ -163,7 +163,7 @@ fun MainText(breakpoint: Breakpoint){
 @Composable
 fun MainImage(){
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(80.percent)
             .fillMaxHeight(),
         verticalArrangement = Arrangement.Bottom
     ){
