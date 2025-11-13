@@ -2,7 +2,7 @@ package com.stevdza.san.sections
 
 import androidx.compose.runtime.*
 import com.stevdza.san.components.SectionTitle
-import com.stevdza.san.models.Service
+import com.stevdza.san.models.Portfolio
 import com.stevdza.san.models.Theme
 import com.stevdza.san.util.Constants.FONT_FAMILY
 import com.stevdza.san.models.Section
@@ -28,18 +28,19 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun ServiceSection(){
-    Box(modifier = Modifier.id(Section.Service.id)
+fun PortfolioSection(){
+    Box(modifier = Modifier.id(Section.Portfolio.id)
         .maxWidth(SECTION_WIDTH.px)
         .padding(topBottom = 150.px),
         contentAlignment = Alignment.TopCenter) {
 
-        ServiceContent()
+        PortfolioContent()
     }
 }
 
+
 @Composable
-fun ServiceContent(){
+fun PortfolioContent(){
     val breakpoint = rememberBreakpoint()
 
     Column(
@@ -48,21 +49,25 @@ fun ServiceContent(){
     ){
         SectionTitle(
             modifier = Modifier.fillMaxWidth().margin(bottom = 20.px),
-            section = Section.Service,
+            section = Section.Portfolio,
             alignment = Alignment.CenterHorizontally)
 
-        SimpleGrid(
-            modifier = Modifier
-            .fillMaxWidth(if(breakpoint >= Breakpoint.MD) 90.px else 100.px)
-            .margin(bottom = 20.px),
-            numColumns = numColumns(base = 1,sm = 2,md = 3)
-        ){
-
-
-                Service.values().forEach{service ->
-                    ServiceCard(service = service)
-                }
-        }
-
+        PortfolioCards(breakpoint)
     }
 }
+
+@Composable
+fun PortfolioCards(breakpoint: Breakpoint){
+    Row(modifier = Modifier.fillMaxWidth()
+        .maxWidth(if(breakpoint >= Breakpoint.MD)950.px
+        else if(breakpoint >= Breakpoint.SM)625.px
+        else 300.px)
+    ){
+        Portfolio.values().forEach{service ->
+            PortfolioCard(
+                modifier = Modifier.margin(right = 25.px)
+                portfolio = portfolio)
+        }
+    }
+}
+

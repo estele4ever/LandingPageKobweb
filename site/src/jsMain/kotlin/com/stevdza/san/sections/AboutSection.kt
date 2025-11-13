@@ -53,7 +53,7 @@ fun AboutContent(){
 
     Column(
         modifier = Modifier.fillMaxSize(if(breakpoint >= Breakpoint.MD) 100.percent else 90.percent)
-            .maxWidth(1200.px),
+            .maxWidth(120.px),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         SimpleGrid(modifier = Modifier.fillMaxWidth(if(breakpoint >= Breakpoint.MD) 90.px else 100.px),
@@ -126,8 +126,8 @@ fun AboutMe(){
         Skill.values().forEach{skill->
             SkillBar(name = skill.title,
                 index = skill.ordinal,
-                percentage = if(viewportEntered) skill.percentage else 0.percent),
-                animatedPercentage = if(viewportEntered) animatedPercentage[skill.ordinal] else 0
+                percentage = if(viewportEntered) skill.percentage else 0.percent,
+                animatedPercentage = if(viewportEntered) animatedPercentage[skill.ordinal] else 0)
         }
     }
 }

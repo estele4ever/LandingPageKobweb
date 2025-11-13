@@ -75,8 +75,8 @@ fun SkillBar(name: String,
                     .backgroundColor(Theme.Primary.rgb)
                     .transition(Transition.of(
                         property = "width",
-                        duration = 1000.ms),
-                        delay = 100.ms * index)
+                        duration = 1000.ms,
+                        delay = 100.ms * index))
             )
         }
     }

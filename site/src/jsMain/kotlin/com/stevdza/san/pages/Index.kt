@@ -23,6 +23,8 @@ fun HomePage() {
     ){
         MainSection()
         AboutSection()
+        ServiceSection()
+        PortfolioSection()
         //Header()
     }
 }
