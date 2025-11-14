@@ -25,6 +25,7 @@ object Res{
         const val portfolio3 = "portfolio3.png"
         const val portfolio4 = "portfolio4.jpg"
         const val portfolio5 = "portfolio5.png"
+        const val icon = "link_icon.svg"
     }
     object Icon{
         const val android = "android_icon.svg"
@@ -32,6 +33,10 @@ object Res{
         const val business = "business_icon.svg"
         const val design = "design_icon.svg"
         const val seo = "seo_icon.svg"
+        const val checkmark = "checkmark_icon.svg"
+        const val happy = "happy_icon.svg"
+        const val shield = "shield_icon.svg"
+        const val user = "user_icon.svg"
         const val web = "web_icon.svg"
     }
 }

@@ -1,9 +1,5 @@
 package com.stevdza.san.sections
 
-
-
-
-
 import androidx.compose.runtime.Composable
 import com.stevdza.san.util.Constants.SECTION_WIDTH
 import com.stevdza.san.util.Res

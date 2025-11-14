@@ -52,14 +52,21 @@ fun AboutContent(){
     val breakpoint = rememberBreakpoint()
 
     Column(
-        modifier = Modifier.fillMaxSize(if(breakpoint >= Breakpoint.MD) 100.percent else 90.percent)
-            .maxWidth(120.px),
+        modifier = Modifier
+            .fillMaxSize(
+                if(breakpoint >= Breakpoint.MD) 100.percent
+                else 90.percent)
+            .maxWidth(1200.px),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        SimpleGrid(modifier = Modifier.fillMaxWidth(if(breakpoint >= Breakpoint.MD) 90.px else 100.px),
+        SimpleGrid(modifier = Modifier.fillMaxWidth(
+            if(breakpoint >= Breakpoint.MD) 90.percent
+            else 100.percent),
             numColumns = numColumns(base = 1,md = 2)
         ){
-            AboutImage()
+            if (breakpoint >= Breakpoint.MD) {
+                AboutImage()
+            }
             AboutMe()
         }
 
@@ -68,11 +75,14 @@ fun AboutContent(){
 
 @Composable
 fun AboutImage(){
-    Box(modifier = Modifier.fillMaxWidth(),
-        contentAlignment = Alignment.Center) {
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
         Image(src = Res.Image.about_image,
             description = "main description",
-            modifier = AboutImageStyle.toModifier().fillMaxWidth(80.percent)
+            modifier = AboutImageStyle.toModifier()
+                .fillMaxWidth(80.percent)
         )
     }
 }
@@ -103,13 +113,11 @@ fun AboutMe(){
     )
 
     Column(
-        modifier = Modifier.fillMaxWidth()
-            .maxWidth(1200.px),
+        modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center
     ){
         SectionTitle(
-            section = Section.About,
-            alignment = Alignment.CenterHorizontally)
+            section = Section.About)
         P(
             attrs = AboutTextStyle.toModifier()
                 .margin(topBottom = 25.px)

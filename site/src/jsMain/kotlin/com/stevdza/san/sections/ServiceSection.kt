@@ -52,9 +52,6 @@ fun ServiceContent(){
             alignment = Alignment.CenterHorizontally)
 
         SimpleGrid(
-            modifier = Modifier
-            .fillMaxWidth(if(breakpoint >= Breakpoint.MD) 90.px else 100.px)
-            .margin(bottom = 20.px),
             numColumns = numColumns(base = 1,sm = 2,md = 3)
         ){
 

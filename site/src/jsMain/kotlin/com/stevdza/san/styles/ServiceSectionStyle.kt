@@ -56,7 +56,7 @@ val ServiceCardStyle  = CssStyle{
     }
     cssRule("> P"){
         Modifier
-            .color(Theme.Secondary.rgb)
+            .color(Theme.LightGray.rgb)
             .transition(Transition.of(property = "color", duration = 200.ms))
     }
     cssRule(":hover > P"){
