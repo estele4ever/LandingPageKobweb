@@ -32,7 +32,7 @@ fun Header(){
 
     val breakpoint = rememberBreakpoint()
     Row(modifier = Modifier.fillMaxWidth(if(breakpoint > Breakpoint.MD) 80.percent else 90.percent)
-        .margin(topBottom = 50.px),
+        .margin(topBottom = 20.px),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ){

@@ -1,6 +1,7 @@
 package com.stevdza.san.sections
 
 
+
 import androidx.compose.runtime.*
 import com.stevdza.san.components.SectionTitle
 import com.stevdza.san.components.SkillBar
@@ -35,6 +36,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
+
 
 @Composable
 fun AboutSection(){

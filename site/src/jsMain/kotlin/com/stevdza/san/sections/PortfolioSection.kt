@@ -62,6 +62,7 @@ fun PortfolioCards(breakpoint: Breakpoint){
     Row(modifier = Modifier
         .id("scrollableContainer")
         .fillMaxWidth()
+        .margin(bottom = 25.px)
         .maxWidth(if(breakpoint >= Breakpoint.MD)950.px
         else if(breakpoint >= Breakpoint.SM)625.px
         else 300.px)

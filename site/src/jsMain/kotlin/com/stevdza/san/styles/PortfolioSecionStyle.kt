@@ -21,7 +21,7 @@ val PortfolioSectionStyle = CssStyle{
         Modifier.width(300.px)
     }
 
-    cssRule("> #columnParent > #boxParent > #GreenOverlay > #greenOverlay > #linkIcon"){
+    cssRule("> #columnParent > #boxParent > #greenOverlay > #linkIcon"){
         Modifier.visibility(Visibility.Hidden)
     }
     cssRule(":hover> #columnParent > #boxParent > #greenOverlay > #linkIcon"){

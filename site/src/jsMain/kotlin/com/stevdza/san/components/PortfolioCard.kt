@@ -40,7 +40,8 @@ fun PortfolioCard(
     modifier: Modifier = Modifier,
     portfolio: Portfolio,
     link: String = WEB_SITE) {
-Link(modifier = PortfolioSectionStyle.toModifier()
+Link(
+    modifier = PortfolioSectionStyle.toModifier()
     .textDecorationLine(TextDecorationLine.None),
     path = link
     //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
@@ -50,14 +51,15 @@ Link(modifier = PortfolioSectionStyle.toModifier()
             modifier = Modifier
                 .id("boxParent")
                 .fillMaxWidth()
-                .maxWidth(20.px)
+                .maxWidth(300.px)
                 .margin(bottom = 20.px)
 
         ) {
             Image(
                 src = portfolio.image,
                 description = "Portfolio image",
-                modifier = Modifier.size(300.px)
+                modifier = Modifier
+                    .size(300.px)
                     .objectFit(ObjectFit.Cover)
             )
             Box(
