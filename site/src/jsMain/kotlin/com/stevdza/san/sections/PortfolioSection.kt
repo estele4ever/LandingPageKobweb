@@ -31,7 +31,7 @@ import org.jetbrains.compose.web.css.px
 fun PortfolioSection(){
     Box(modifier = Modifier.id(Section.Portfolio.id)
         .maxWidth(SECTION_WIDTH.px)
-        .padding(topBottom = 150.px),
+        .padding(topBottom = 100.px),
         contentAlignment = Alignment.TopCenter) {
 
         PortfolioContent()
@@ -63,9 +63,7 @@ fun PortfolioCards(breakpoint: Breakpoint){
         .id("scrollableContainer")
         .fillMaxWidth()
         .margin(bottom = 25.px)
-        .maxWidth(if(breakpoint >= Breakpoint.MD)950.px
-        else if(breakpoint >= Breakpoint.SM)625.px
-        else 300.px)
+        .maxWidth(950.px)
         .overflow(Overflow.Hidden)
         .scrollBehavior(ScrollBehavior.Smooth)
     ){
@@ -75,7 +73,10 @@ fun PortfolioCards(breakpoint: Breakpoint){
                 portfolio = portfolio)
         }
     }
-}
+}/*
+                if (breakpoint > Breakpoint.MD) 950.px
+                else if (breakpoint > Breakpoint.SM) 625.px
+                else 300.px */
 
 @Composable
 fun PortfolioNavigation(){

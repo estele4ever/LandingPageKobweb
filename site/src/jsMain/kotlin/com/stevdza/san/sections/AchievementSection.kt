@@ -25,11 +25,13 @@ fun AchievementSection(){
     val breakpoint = rememberBreakpoint()
 
     Box(modifier = Modifier.id(Section.Achievements.id)
+        .fillMaxWidth()
         .maxWidth(SECTION_WIDTH.px)
-        .padding(topBottom = 150.px),
-        contentAlignment = Alignment.TopCenter) {
+        .padding(topBottom = 150.px)
+        .backgroundColor(Theme.LightGray.rgb),
+        contentAlignment = Alignment.Center) {
 
-        AchievementContent(breakpoint)
+        AchievementContent(breakpoint = breakpoint)
     }
 }
 

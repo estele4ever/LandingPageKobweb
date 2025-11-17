@@ -3,6 +3,7 @@ package com.stevdza.san.components
 import androidx.compose.runtime.Composable
 import com.stevdza.san.models.Testimonial
 import com.stevdza.san.models.Theme
+import com.stevdza.san.components.RatingBar
 import com.stevdza.san.util.Constants.FONT_FAMILY
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -22,37 +23,41 @@ fun TestimonialCard(
     testimonial: Testimonial,
     breakpoint: Breakpoint
 ){
-    Row(modifier = modifier.maxWidth(450.px)){
+    Row(modifier = modifier.maxWidth(500.px)){
         Image(
             modifier = Modifier.margin(20.px)
                 .maxWidth(
-                    if(breakpoint > Breakpoint.MD) 160.px else 80.px
+                    if(breakpoint >= Breakpoint.MD) 160.px else 80.px
+                )
+                .borderRadius(
+                    topLeft = 60.px,
+                    topRight = 60.px,
+                    bottomLeft = 60.px,
+                    bottomRight = 0.px
                 ),
             src = testimonial.image,
-            description = "avatar"
+            description = "avatar image"
         )
         Column{
             Row(modifier =Modifier.fillMaxWidth()
-                .margin(bottom = 20.px)){
+                .margin(bottom = 10.px)){
                 Column{
                     P(
                         attrs = Modifier
                             .margin(topBottom = 0.px)
                             .fillMaxWidth()
-                            .maxWidth(500.px)
                             .fontSize(18.px)
                             .fontFamily(FONT_FAMILY)
                             .fontWeight(FontWeight.Bold)
                             .color(Theme.Secondary.rgb)
                             .toAttrs()
                     ) {
-                        Text( testimonial.fullname)
+                        Text( testimonial.fullName)
                     }
                     P(
                         attrs = Modifier
                             .margin(topBottom = 0.px)
                             .fillMaxWidth()
-                            .maxWidth(500.px)
                             .fontSize(12.px)
                             .fontFamily(FONT_FAMILY)
                             .fontWeight(FontWeight.Normal)
@@ -61,12 +66,9 @@ fun TestimonialCard(
                     ) {
                         Text( testimonial.profession)
                     }
-                    if(breakpoint < Breakpoint.MD) RatingBar(modifier = Modifier.margin(top = 10.px)
+                    RatingBar(modifier = Modifier.margin(top = 5.px))
                 }
-                if(breakpoint >= Breakpoint.MD){
-                    Space()
-                    RatingBar()
-                }
+
             }
             P(
                 attrs = Modifier
