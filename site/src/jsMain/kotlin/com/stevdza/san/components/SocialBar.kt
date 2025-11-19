@@ -38,29 +38,45 @@ import com.varabyte.kobweb.navigation.OpenLinkStrategy
 
 
 @Composable
-fun SocialBar(){
-    Column(
-        modifier = Modifier.margin(right = 25.px)
-            .padding(topBottom = 25.px)
-                .minWidth( 40.px)
-            .borderRadius(20.px)
-            .backgroundColor(Colors.White),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        SocialLink()
+fun SocialBar(row: Boolean = false){
+    if (row){
+        Row(
+            modifier = Modifier.margin(top = 25.px)
+                .padding(leftRight = 25.px)
+                .minHeight(40.px)
+                .borderRadius(20.px)
+                .backgroundColor(Colors.White),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            SocialLink(row = true)
+        }
+    }
+    else{
+        Column(
+            modifier = Modifier.margin(right = 25.px)
+                .padding(topBottom = 25.px)
+                .minWidth(40.px)
+                .borderRadius(20.px)
+                .backgroundColor(Colors.White),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            SocialLink()
+        }
     }
 }
 
 @Composable
-private fun SocialLink(){
+private fun SocialLink(row: Boolean = false){
         Link(
         path = WEB_SITE,
             //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
         ){
         FaFacebook(
             modifier = SocialLinkStyle.toModifier()
-                .margin(bottom = 40.px),
+                .margin(bottom = if (row)0.px else 40.px,
+                    right = if(row) 40.px else 0.px),
             size = IconSize.LG
         )}
 
@@ -70,7 +86,8 @@ private fun SocialLink(){
     ){
         FaTwitter(
             modifier = SocialLinkStyle.toModifier()
-                .margin(bottom = 40.px),
+                .margin(bottom = if (row)0.px else 40.px,
+                    right = if(row) 40.px else 0.px),
             size = IconSize.LG
         )}
 
@@ -80,7 +97,8 @@ private fun SocialLink(){
     ){
         FaInstagram(
             modifier = SocialLinkStyle.toModifier()
-                .margin(bottom = 40.px),
+                .margin(bottom = if (row)0.px else 40.px,
+                    right = if(row) 40.px else 0.px),
             size = IconSize.LG
         )}
 

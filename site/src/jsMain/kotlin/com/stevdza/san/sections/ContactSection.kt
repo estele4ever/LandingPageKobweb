@@ -1,12 +1,12 @@
 package com.stevdza.san.sections
 
 import androidx.compose.runtime.*
-import com.stevdza.san.components.ExperienceCard
+import com.stevdza.san.components.ContactForm
 import com.stevdza.san.components.SectionTitle
-import com.stevdza.san.models.Experience
 import com.stevdza.san.models.Section
 import com.stevdza.san.util.Constants.SECTION_WIDTH
 import com.stevdza.san.util.ObserveViewportEntered
+//import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -14,34 +14,26 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.jetbrains.compose.web.css.deg
+import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
-
 @Composable
-fun ExperienceSection(){
+fun ContactSection(){
 
-    Box(modifier = Modifier.id(Section.Experience.id)
+    Box(modifier = Modifier.id(Section.Contact.id)
         .maxWidth(SECTION_WIDTH.px)
         .padding(topBottom = 150.px),
         contentAlignment = Alignment.Center) {
-        ExperienceContent()
+        ContactContent()
     }
 }
-
-
 @Composable
-fun ExperienceContent() {
+fun ContactContent() {
     val breakpoint = rememberBreakpoint()
- var animatedMargin by remember { mutableStateOf(200.px) }
-
-    ObserveViewportEntered(
-        sectionId = Section.Experience.id,
-        distanceFromTop = 500.0,
-        onViewportEntered = {
-            animatedMargin = 50.px
-        }
-    )
 
     Column(
         modifier = Modifier.fillMaxSize(if (breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
@@ -49,18 +41,10 @@ fun ExperienceContent() {
     ) {
         SectionTitle(
             modifier = Modifier.margin(bottom = 25.px)
-                .fillMaxWidth(if (breakpoint >= Breakpoint.MD) 60.percent else 90.percent),
-            section = Section.Experience,
-            alignment = Alignment.Start
+                .fillMaxWidth(),
+            section = Section.Contact,
+            alignment = Alignment.CenterHorizontally
         )
-       Experience.values().forEach{experience->
-           ExperienceCard(
-               breakpoint = breakpoint,
-               active = if(experience == Experience.First) true else false,
-               experience = experience,
-               animatedMargin = animatedMargin
-           )
-       }
+        ContactForm(breakpoint = breakpoint)
     }
 }
-

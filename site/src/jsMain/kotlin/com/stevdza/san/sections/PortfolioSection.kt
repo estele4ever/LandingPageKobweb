@@ -63,7 +63,9 @@ fun PortfolioCards(breakpoint: Breakpoint){
         .id("scrollableContainer")
         .fillMaxWidth()
         .margin(bottom = 25.px)
-        .maxWidth(950.px)
+        .maxWidth(if (breakpoint > Breakpoint.MD) 950.px
+        else if (breakpoint > Breakpoint.SM) 625.px
+        else 300.px)
         .overflow(Overflow.Hidden)
         .scrollBehavior(ScrollBehavior.Smooth)
     ){

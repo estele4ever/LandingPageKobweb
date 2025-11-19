@@ -16,16 +16,20 @@ import com.varabyte.kobweb.core.Page
 @Page
 @Composable
 fun HomePage() {
+    var menuOpened by remember { mutableStateOf(false) }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        MainSection()
+        MainSection(onMenuClicked = {menuOpened = true})
         AboutSection()
         ServiceSection()
         PortfolioSection()
         AchievementSection()
         TestimonialSection()
+        ExperienceSection()
+        ContactSection()
+        FooterSection()
     }
 }

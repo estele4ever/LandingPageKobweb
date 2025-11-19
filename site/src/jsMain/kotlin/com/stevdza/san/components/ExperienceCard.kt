@@ -4,7 +4,10 @@ import androidx.compose.runtime.Composable
 import com.stevdza.san.models.Experience
 import com.stevdza.san.models.Theme
 import com.stevdza.san.util.Constants.FONT_FAMILY
-import com.varabyte.kobweb.compose.css.CSSTransition
+//import com.varabyte.kobweb.compose.css.CSSTransition
+import com.varabyte.kobweb.compose.ui.modifiers.transform
+import com.varabyte.kobweb.compose.css.Transition
+import com.varabyte.kobweb.compose.ui.modifiers.transition
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -25,7 +28,7 @@ import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun ExperienceCard(
-    breakpoint: Breakpoint
+    breakpoint: Breakpoint,
     active: Boolean = false,
     animatedMargin: CSSSizeValue<CSSUnit.px>,
     experience: Experience
@@ -86,10 +89,12 @@ fun ExperienceDetails(
         verticalAlignment = Alignment.CenterVertically
     ){
         if(breakpoint >= Breakpoint.MD){
-            ExperienceNumber()
+            ExperienceNumber(
+                active= active,
+                experience= experience)
         }
         Column(
-            modifer = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize()
                 .margin(left = if(breakpoint <= Breakpoint.SM) 0.px else animatedMargin)
                 .transition(Transition.of(property = "margin", duration = 500.ms, delay = experience.ordinal * 100.ms)),
             verticalArrangement = Arrangement.Center
@@ -100,7 +105,7 @@ fun ExperienceDetails(
                     .fontSize(20.px)
                     .fontFamily(FONT_FAMILY)
                     .fontWeight(FontWeight.Bold)
-                    .LineHeight(1.6)
+                    .lineHeight(1.6)
                     .color( Theme.Secondary.rgb)
                     .toAttrs()
             ) {
@@ -144,12 +149,12 @@ fun ExperienceNumber(
         contentAlignment = Alignment.Center
     ){
         Box(
-            modifer = Modifier.fillMaxHeight()
+            modifier = Modifier.fillMaxHeight()
                 .width(3.px)
                 .backgroundColor(Theme.Primary.rgb)
         )
         Box(
-            modifer = Modifier.size(40.px)
+            modifier = Modifier.size(40.px)
                 .border(
                     width = 3.px,
                     style = LineStyle.Solid,
@@ -164,7 +169,7 @@ fun ExperienceNumber(
                     .fontSize(16.px)
                     .fontFamily(FONT_FAMILY)
                     .fontWeight(FontWeight.Bold)
-                    .color(if (active) Colors.White else Theme.Secondary.rgb)
+                    .color(if (active) Colors.White else Theme.Primary.rgb)
                     .toAttrs()
             ) {
                 Text(experience.number)
