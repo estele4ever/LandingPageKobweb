@@ -70,19 +70,20 @@ fun SocialBar(row: Boolean = false){
 @Composable
 private fun SocialLink(row: Boolean = false){
         Link(
-        path = WEB_SITE,
-            //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
+            path = WEB_SITE,
+            openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
         ){
         FaFacebook(
             modifier = SocialLinkStyle.toModifier()
-                .margin(bottom = if (row)0.px else 40.px,
+                .margin(
+                    bottom = if (row)0.px else 40.px,
                     right = if(row) 40.px else 0.px),
             size = IconSize.LG
         )}
 
     Link(
         path = WEB_SITE,
-        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
+        openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaTwitter(
             modifier = SocialLinkStyle.toModifier()
@@ -93,7 +94,7 @@ private fun SocialLink(row: Boolean = false){
 
     Link(
         path = WEB_SITE,
-        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
+        openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaInstagram(
             modifier = SocialLinkStyle.toModifier()
@@ -104,7 +105,7 @@ private fun SocialLink(row: Boolean = false){
 
     Link(
         path = WEB_SITE,
-        //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
+        openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaLinkedin(
             modifier = SocialLinkStyle.toModifier(),

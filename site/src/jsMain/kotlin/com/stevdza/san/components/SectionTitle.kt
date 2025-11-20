@@ -4,10 +4,13 @@ import androidx.compose.runtime.*
 import com.stevdza.san.models.Section
 import com.stevdza.san.models.Theme
 import com.stevdza.san.util.Constants.FONT_FAMILY
+import com.stevdza.san.util.ObserveViewportEntered
 //import com.stevdza.san.util.ObserveViewportEntered
 //import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.ScrollSnapAlign
 import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -27,6 +30,22 @@ fun SectionTitle(
     section: Section,
     alignment: Alignment.Horizontal = Alignment.Start
 ){
+
+    val scope = rememberCoroutineScope()
+    var titleMargin by remember { mutableStateOf(50.px) }
+    var subTitleMargin by remember { mutableStateOf(50.px) }
+
+    ObserveViewportEntered(
+        sectionId = section.id,
+        distanceFromTop = 700.0,
+        onViewportEntered = {
+            scope.launch {
+                subTitleMargin = 0.px
+                if (alignment == Alignment.Center) delay(25)
+                titleMargin = 0.px
+            }
+        }
+    )
     Column(
         modifier = Modifier,
         horizontalAlignment = alignment
@@ -39,11 +58,16 @@ fun SectionTitle(
                     Alignment.End -> TextAlign.End
                     else -> TextAlign.Start
                 })
-                .margin(topBottom = 0.px)
+                .margin(
+                    left = titleMargin,
+                    top = 0.px,
+                    bottom = 0.px
+                )
                 .fontFamily(FONT_FAMILY)
                 .fontSize( 25.px)
                 .fontWeight(FontWeight.Normal)
                 .color(Theme.Primary.rgb)
+                .transition(Transition.of(property = "margin", duration = 300.ms))
                 .toAttrs()
         ){
             Text(section.title)
@@ -56,11 +80,16 @@ fun SectionTitle(
                     Alignment.End -> TextAlign.End
                     else -> TextAlign.Start
                 })
-                .margin(top = 0.px, bottom = 10.px)
+                .margin(
+                    left = if (alignment == Alignment.Center) subTitleMargin else 0.px,
+                    right = if (alignment == Alignment.CenterHorizontally) subTitleMargin else 0.px,
+                    top = 0.px,
+                    bottom = 10.px)
                 .fontFamily(FONT_FAMILY)
                 .fontSize( 40.px)
                 .fontWeight(FontWeight.Bold)
                 .color(Theme.Secondary.rgb)
+                .transition(Transition.of(property = "rotate", duration = 300.ms))
                 .toAttrs()
         ){
             Text(section.subtitle)

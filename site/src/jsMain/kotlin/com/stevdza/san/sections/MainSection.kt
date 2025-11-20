@@ -60,8 +60,8 @@ fun MainContent(onMenuClicked:() -> Unit){
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
-        //verticalArrangement = Arrangement.SpaceBetween
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
     ){
         Header(onMenuClicked = onMenuClicked)
         //SocialBar()
@@ -138,7 +138,8 @@ fun MainText(breakpoint: Breakpoint){
             ){
                 Text(LOREM_IPSUM_SHORTEST)
             }
-            Button( attrs = MainSectionStyle.toModifier().height(40.px)
+            Button( attrs = MainSectionStyle.toModifier()
+                .height(40.px)
                 .border(width = 0.px)
                 .borderRadius(r = 5.px)
                 .backgroundColor(Theme.Primary.rgb)

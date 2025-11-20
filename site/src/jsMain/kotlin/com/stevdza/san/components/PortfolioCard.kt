@@ -43,10 +43,11 @@ fun PortfolioCard(
 Link(
     modifier = PortfolioSectionStyle.toModifier()
     .textDecorationLine(TextDecorationLine.None),
-    path = link
-    //openExternalLinkStrategy = OpenLinkStrategy.IN_NEW_TAB
+    path = link,
+    openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
 ){
-    Column(modifier = modifier.id("columnParent")) {
+    Column(modifier = modifier.id("columnParent")
+        .width(Width.MaxContent)) {
         Box(
             modifier = Modifier
                 .id("boxParent")

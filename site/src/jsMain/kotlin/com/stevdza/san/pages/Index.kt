@@ -2,6 +2,7 @@ package com.stevdza.san.pages
 
 
 import androidx.compose.runtime.*
+import com.stevdza.san.components.BackToTopButton
 //import com.stevdza.san.components.BackToTopButton
 //import com.stevdza.san.components.OverflowMenu
 import com.stevdza.san.sections.*
@@ -17,19 +18,22 @@ import com.varabyte.kobweb.core.Page
 @Composable
 fun HomePage() {
     var menuOpened by remember { mutableStateOf(false) }
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        MainSection(onMenuClicked = {menuOpened = true})
-        AboutSection()
-        ServiceSection()
-        PortfolioSection()
-        AchievementSection()
-        TestimonialSection()
-        ExperienceSection()
-        ContactSection()
-        FooterSection()
+    Box(modifier = Modifier.fillMaxSize()){
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            MainSection(onMenuClicked = { menuOpened = true })
+            AboutSection()
+            ServiceSection()
+            PortfolioSection()
+            AchievementSection()
+            TestimonialSection()
+            ExperienceSection()
+            ContactSection()
+            FooterSection()
+        }
+        BackToTopButton()
     }
 }

@@ -6,6 +6,7 @@ import com.stevdza.san.components.SectionTitle
 import com.stevdza.san.models.Section
 import com.stevdza.san.util.Constants.SECTION_WIDTH
 import com.stevdza.san.util.ObserveViewportEntered
+import com.varabyte.kobweb.compose.css.Transition
 //import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -34,14 +35,30 @@ fun ContactSection(){
 @Composable
 fun ContactContent() {
     val breakpoint = rememberBreakpoint()
+    val scope = rememberCoroutineScope()
+    var animatedRotation by remember { mutableStateOf(0.deg) }
 
+    ObserveViewportEntered(
+        sectionId = Section.Contact.id,
+        distanceFromTop = 500.0,
+        onViewportEntered = {
+            animatedRotation = 500.deg
+            scope.launch {
+                delay(500)
+                animatedRotation = 0.deg
+            }
+        }
+    )
     Column(
         modifier = Modifier.fillMaxSize(if (breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SectionTitle(
-            modifier = Modifier.margin(bottom = 25.px)
-                .fillMaxWidth(),
+            modifier = Modifier
+                .margin(bottom = 25.px)
+                .fillMaxWidth()
+                .transform { rotate(animatedRotation) }
+                .transition(Transition.of(property = "transform", duration = 500.ms)),
             section = Section.Contact,
             alignment = Alignment.CenterHorizontally
         )

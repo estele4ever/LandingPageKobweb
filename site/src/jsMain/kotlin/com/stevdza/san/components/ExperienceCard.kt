@@ -161,7 +161,8 @@ fun ExperienceNumber(
                     color = Theme.Primary.rgb
                 )
                 .backgroundColor(if (active)Theme.Primary.rgb else Colors.White)
-                .borderRadius(50.percent)
+                .borderRadius(50.percent),
+            contentAlignment = Alignment.Center
         ){
             P(
                 attrs = Modifier
