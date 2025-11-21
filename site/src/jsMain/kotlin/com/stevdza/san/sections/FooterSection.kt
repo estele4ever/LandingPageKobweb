@@ -88,7 +88,7 @@ fun FooterMenu(row :Boolean = true){
                 .fontFamily(FONT_FAMILY)
                 .padding(right = if (row)20.px else 0.px,
                     bottom = if (row) 0.px else 20.px)
-                .fontSize(12.px)
+                .fontSize(14.px)
                 .fontWeight(FontWeight.Normal)
                 .textDecorationLine(TextDecorationLine.None),
             path = section.path,

@@ -42,7 +42,7 @@ fun ContactContent() {
         sectionId = Section.Contact.id,
         distanceFromTop = 500.0,
         onViewportEntered = {
-            animatedRotation = 500.deg
+            animatedRotation = 10.deg
             scope.launch {
                 delay(500)
                 animatedRotation = 0.deg

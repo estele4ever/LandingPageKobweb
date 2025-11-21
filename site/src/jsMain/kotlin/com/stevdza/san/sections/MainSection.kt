@@ -60,8 +60,8 @@ fun MainContent(onMenuClicked:() -> Unit){
 
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalAlignment = Alignment.CenterHorizontally
     ){
         Header(onMenuClicked = onMenuClicked)
         //SocialBar()
@@ -71,7 +71,10 @@ fun MainContent(onMenuClicked:() -> Unit){
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             SimpleGrid(
-                modifier = Modifier.fillMaxSize(if(breakpoint >= Breakpoint.MD) 80.percent else 90.percent),
+                modifier = Modifier
+                    .fillMaxWidth(
+                        if(breakpoint >= Breakpoint.MD) 80.percent
+                        else 90.percent),
                 numColumns = numColumns(base = 1,md = 2)
             ){
                 MainText(breakpoint = breakpoint)
@@ -160,8 +163,9 @@ fun MainText(breakpoint: Breakpoint){
 @Composable
 fun MainImage(){
     Column(
-        modifier = Modifier.fillMaxSize(80.percent)
-            .fillMaxHeight(),
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxSize(80.percent),
         verticalArrangement = Arrangement.Bottom
     ){
     Image(src = Res.Image.main_image,
