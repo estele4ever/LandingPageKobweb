@@ -29,7 +29,6 @@ fun ExperienceSection(){
     }
 }
 
-
 @Composable
 fun ExperienceContent() {
     val breakpoint = rememberBreakpoint()
@@ -44,7 +43,7 @@ fun ExperienceContent() {
     )
 
     Column(
-        modifier = Modifier.fillMaxSize(if (breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
+        modifier = Modifier.fillMaxWidth(if (breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SectionTitle(

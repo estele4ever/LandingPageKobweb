@@ -16,16 +16,16 @@ import org.jetbrains.compose.web.css.*
 
 val NavigationItemStyle = CssStyle{
     base{
-    Modifier.color(Theme.Secondary.rgb)
-        .transition(Transition.of(property = "color", duration = 200.ms))
-}
+        Modifier.color(Theme.Secondary.rgb)
+            .transition(Transition.of(property = "color", duration = 200.ms))
+    }
     anyLink{
-    Modifier.color(Theme.Secondary.rgb)
-        .transition(Transition.of(property = "color", duration = 200.ms))
-}
+        Modifier.color(Theme.Secondary.rgb)
+            .transition(Transition.of(property = "color", duration = 200.ms))
+    }
     hover{
-    Modifier.color(Theme.Primary.rgb)
-}
+        Modifier.color(Theme.Primary.rgb)
+    }
 }
 
 @OptIn(ExperimentalComposeWebApi::class)

@@ -108,7 +108,8 @@ fun MainText(breakpoint: Breakpoint){
             }
 
             P(
-                attrs = Modifier.margin(top = 20.px, bottom = 0.px)
+                attrs = Modifier
+                    .margin(top = 20.px, bottom = 0.px)
                     .fontSize(if(breakpoint >= Breakpoint.LG) 68.px else 40.px)
                     .fontFamily(FONT_FAMILY)
                     .fontWeight(FontWeight.Bolder)
@@ -164,12 +165,12 @@ fun MainText(breakpoint: Breakpoint){
 fun MainImage(){
     Column(
         modifier = Modifier
-            .fillMaxHeight()
-            .fillMaxSize(80.percent),
+            .fillMaxSize(80.percent)
+            .fillMaxHeight(),
         verticalArrangement = Arrangement.Bottom
     ){
     Image(src = Res.Image.main_image,
         description = "main description",
-        modifier = MainImageStyle.toModifier().fillMaxSize()
+        modifier = MainImageStyle.toModifier().fillMaxWidth()
     )}
 }

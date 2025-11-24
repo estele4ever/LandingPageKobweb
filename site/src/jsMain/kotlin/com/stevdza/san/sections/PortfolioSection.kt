@@ -48,7 +48,7 @@ fun PortfolioContent(){
         horizontalAlignment = Alignment.CenterHorizontally
     ){
         SectionTitle(
-            modifier = Modifier.fillMaxWidth().margin(bottom = 20.px),
+            modifier = Modifier.fillMaxWidth().margin(bottom = 25.px),
             section = Section.Portfolio,
             alignment = Alignment.CenterHorizontally)
 
