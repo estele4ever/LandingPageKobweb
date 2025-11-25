@@ -41,7 +41,9 @@ fun SectionTitle(
         onViewportEntered = {
             scope.launch {
                 subTitleMargin = 0.px
-                if (alignment == Alignment.Center) delay(25)
+                if (alignment == Alignment.Center) {
+                    delay(25)
+                }
                 titleMargin = 0.px
             }
         }
@@ -89,7 +91,7 @@ fun SectionTitle(
                 .fontSize( 40.px)
                 .fontWeight(FontWeight.Bold)
                 .color(Theme.Secondary.rgb)
-                .transition(Transition.of(property = "rotate", duration = 300.ms))
+                .transition(Transition.of(property = "margin", duration = 300.ms))
                 .toAttrs()
         ){
             Text(section.subtitle)

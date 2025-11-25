@@ -49,8 +49,7 @@ fun ExperienceContent() {
         SectionTitle(
             modifier = Modifier.margin(bottom = 25.px)
                 .fillMaxWidth(if (breakpoint >= Breakpoint.MD) 60.percent else 90.percent),
-            section = Section.Experience,
-            alignment = Alignment.Start
+            section = Section.Experience
         )
        Experience.values().forEach{experience->
            ExperienceCard(

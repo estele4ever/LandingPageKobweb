@@ -58,7 +58,7 @@ fun ContactContent() {
                 .margin(bottom = 25.px)
                 .fillMaxWidth()
                 .transform { rotate(animatedRotation) }
-                .transition(Transition.of(property = "transform", duration = 500.ms)),
+                .transition(Transition.of(property = "transform", duration = 800.ms)),
             section = Section.Contact,
             alignment = Alignment.CenterHorizontally
         )
