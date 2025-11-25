@@ -55,10 +55,10 @@ fun ContactContent() {
     ) {
         SectionTitle(
             modifier = Modifier
-                .margin(bottom = 25.px)
                 .fillMaxWidth()
+                .margin(bottom = 25.px)
                 .transform { rotate(animatedRotation) }
-                .transition(Transition.of(property = "transform", duration = 800.ms)),
+                .transition(Transition.of(property = "transform", duration = 500.ms)),
             section = Section.Contact,
             alignment = Alignment.CenterHorizontally
         )
