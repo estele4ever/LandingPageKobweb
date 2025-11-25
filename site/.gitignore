@@ -3,4 +3,5 @@
 !.kobweb/conf.yaml
 
 !.kobweb/site
+!.kobweb/site/index.html
 .kobweb/site/_kobweb
