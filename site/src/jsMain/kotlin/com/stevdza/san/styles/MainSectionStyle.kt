@@ -13,18 +13,21 @@ import com.varabyte.kobweb.silk.style.selectors.*
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 
-
-val NavigationItemStyle = CssStyle{
-    base{
-        Modifier.color(Theme.Secondary.rgb)
+val NavigationItemStyle = CssStyle {
+    base {
+        Modifier
+            .styleModifier {
+                property("--bs-link-color", Theme.Secondary.rgb)
+            }
+            .color(Theme.Secondary.rgb)
             .transition(Transition.of(property = "color", duration = 200.ms))
     }
-    anyLink{
-        Modifier.color(Theme.Secondary.rgb)
-            .transition(Transition.of(property = "color", duration = 200.ms))
-    }
-    hover{
-        Modifier.color(Theme.Primary.rgb)
+    hover {
+        Modifier
+            .styleModifier {
+                property("--bs-link-hover-color", Theme.Primary.rgb)
+            }
+            .color(Theme.Primary.rgb)
     }
 }
 

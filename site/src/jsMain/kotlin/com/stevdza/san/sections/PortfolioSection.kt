@@ -40,18 +40,23 @@ fun PortfolioSection(){
 
 
 @Composable
-fun PortfolioContent(){
-
+fun PortfolioContent() {
     val breakpoint = rememberBreakpoint()
     Column(
-        modifier = Modifier.fillMaxWidth(if(breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
+        modifier = Modifier
+            .fillMaxWidth(
+                if (breakpoint >= Breakpoint.MD) 100.percent
+                else 90.percent
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         SectionTitle(
-            modifier = Modifier.fillMaxWidth().margin(bottom = 25.px),
-            section = Section.Portfolio)
-
-        PortfolioCards(breakpoint)
+            modifier = Modifier
+                .fillMaxWidth()
+                .margin(bottom = 25.px),
+            section = Section.Portfolio
+        )
+        PortfolioCards(breakpoint = breakpoint)
         PortfolioNavigation()
     }
 }
