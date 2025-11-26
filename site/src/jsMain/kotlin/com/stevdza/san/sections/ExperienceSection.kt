@@ -23,7 +23,7 @@ fun ExperienceSection(){
 
     Box(modifier = Modifier.id(Section.Experience.id)
         .maxWidth(SECTION_WIDTH.px)
-        .padding(topBottom = 150.px),
+        .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center) {
         ExperienceContent()
     }
@@ -47,8 +47,10 @@ fun ExperienceContent() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SectionTitle(
-            modifier = Modifier.margin(bottom = 25.px)
-                .fillMaxWidth(if (breakpoint >= Breakpoint.MD) 60.percent else 90.percent),
+            modifier = Modifier.fillMaxWidth(if (breakpoint >= Breakpoint.MD) 60.percent
+            else 90.percent)
+                .margin(bottom = 25.px)
+            ,
             section = Section.Experience
         )
        Experience.values().forEach{experience->

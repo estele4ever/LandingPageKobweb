@@ -41,7 +41,7 @@ fun SectionTitle(
         onViewportEntered = {
             scope.launch {
                 subTitleMargin = 0.px
-                if (alignment == Alignment.Center) {
+                if (alignment == Alignment.Start) {
                     delay(25)
                 }
                 titleMargin = 0.px
@@ -49,7 +49,7 @@ fun SectionTitle(
         }
     )
     Column(
-        modifier = Modifier,
+        modifier = modifier,
         horizontalAlignment = alignment
     ){
         P(

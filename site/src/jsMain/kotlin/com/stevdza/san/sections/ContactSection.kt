@@ -27,7 +27,7 @@ fun ContactSection(){
 
     Box(modifier = Modifier.id(Section.Contact.id)
         .maxWidth(SECTION_WIDTH.px)
-        .padding(topBottom = 150.px),
+        .padding(topBottom = 100.px),
         contentAlignment = Alignment.Center) {
         ContactContent()
     }
@@ -50,7 +50,7 @@ fun ContactContent() {
         }
     )
     Column(
-        modifier = Modifier.fillMaxSize(if (breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
+        modifier = Modifier.fillMaxWidth(if (breakpoint >= Breakpoint.MD) 100.percent else 90.percent),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SectionTitle(
