@@ -22,6 +22,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.transform
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.ui.modifiers.transition
+import com.varabyte.kobweb.framework.annotations.DelicateApi
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
@@ -41,6 +42,7 @@ fun TestimonialSection(){
 }
 
 
+@OptIn(DelicateApi::class)
 @Composable
 fun TestimonialContent() {
     val breakpoint = rememberBreakpoint()

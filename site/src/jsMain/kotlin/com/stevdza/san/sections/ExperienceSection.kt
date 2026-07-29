@@ -12,6 +12,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.framework.annotations.DelicateApi
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
@@ -29,6 +30,7 @@ fun ExperienceSection(){
     }
 }
 
+@OptIn(DelicateApi::class)
 @Composable
 fun ExperienceContent() {
     val breakpoint = rememberBreakpoint()
@@ -53,7 +55,7 @@ fun ExperienceContent() {
             ,
             section = Section.Experience
         )
-       Experience.values().forEach{experience->
+       Experience.entries.forEach{ experience->
            ExperienceCard(
                breakpoint = breakpoint,
                active = if(experience == Experience.First) true else false,

@@ -38,12 +38,12 @@ import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.argb
 @Composable
 fun PortfolioCard(
     modifier: Modifier = Modifier,
-    portfolio: Portfolio,
-    link: String = WEB_SITE) {
+    portfolio: Portfolio
+) {
 Link(
     modifier = PortfolioSectionStyle.toModifier()
     .textDecorationLine(TextDecorationLine.None),
-    path = link,
+    path = portfolio.link,
     openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
 ){
     Column(modifier = modifier.id("columnParent")

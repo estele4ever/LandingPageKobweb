@@ -16,6 +16,7 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.framework.annotations.DelicateApi
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -38,6 +39,7 @@ fun ServiceSection(){
     }
 }
 
+@OptIn(DelicateApi::class)
 @Composable
 fun ServiceContent(){
     val breakpoint = rememberBreakpoint()
@@ -56,7 +58,7 @@ fun ServiceContent(){
         ){
 
 
-                Service.values().forEach{service ->
+                Service.entries.forEach{ service ->
                     ServiceCard(service = service)
                 }
         }

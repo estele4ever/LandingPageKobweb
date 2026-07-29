@@ -7,9 +7,9 @@ import com.stevdza.san.styles.MainImageStyle
 import com.stevdza.san.styles.MainSectionStyle
 import com.stevdza.san.components.SocialBar
 import com.stevdza.san.util.Constants.FONT_FAMILY
-import com.stevdza.san.util.Constants.LOREM_IPSUM_SHORTEST
 import com.stevdza.san.models.Theme
 import com.stevdza.san.models.Section
+import com.stevdza.san.util.Constants.MainPresntation
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -140,7 +140,7 @@ fun MainText(breakpoint: Breakpoint){
                     .color(Theme.Secondary.rgb)
                     .toAttrs()
             ){
-                Text(LOREM_IPSUM_SHORTEST)
+                Text(MainPresntation)
             }
             Button( attrs = MainSectionStyle.toModifier()
                 .height(40.px)

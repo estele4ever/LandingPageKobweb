@@ -7,6 +7,9 @@ import com.stevdza.san.util.Constants.SECTION_WIDTH
 import com.stevdza.san.util.Res
 import com.stevdza.san.models.Theme
 import com.stevdza.san.styles.SocialLinkStyle
+import com.stevdza.san.util.Constants.WEB_Github
+import com.stevdza.san.util.Constants.WEB_Instagram
+import com.stevdza.san.util.Constants.WEB_LinkedIn
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -82,18 +85,19 @@ private fun SocialLink(row: Boolean = false){
         )}
 
     Link(
-        path = WEB_SITE,
+        path = WEB_Github,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
-        FaTwitter(
+        FaGithub(
             modifier = SocialLinkStyle.toModifier()
                 .margin(bottom = if (row)0.px else 40.px,
                     right = if(row) 40.px else 0.px),
             size = IconSize.LG
-        )}
+        )
+    }
 
     Link(
-        path = WEB_SITE,
+        path = WEB_Instagram,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaInstagram(
@@ -104,7 +108,7 @@ private fun SocialLink(row: Boolean = false){
         )}
 
     Link(
-        path = WEB_SITE,
+        path = WEB_LinkedIn,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
     ){
         FaLinkedin(

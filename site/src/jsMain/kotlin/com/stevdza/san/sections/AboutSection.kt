@@ -10,6 +10,7 @@ import com.stevdza.san.models.Skill
 import com.stevdza.san.models.Theme
 import com.stevdza.san.styles.AboutImageStyle
 import com.stevdza.san.styles.AboutTextStyle
+import com.stevdza.san.util.Constants.About_Me_Description
 import com.stevdza.san.util.Constants.FONT_FAMILY
 import com.stevdza.san.util.Constants.LOREM_IPSUM_SHORT
 import com.stevdza.san.util.Constants.SECTION_WIDTH
@@ -25,6 +26,7 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.framework.annotations.DelicateApi
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -49,6 +51,7 @@ fun AboutSection(){
     }
 }
 
+@OptIn(DelicateApi::class)
 @Composable
 fun AboutContent(){
     val breakpoint = rememberBreakpoint()
@@ -131,7 +134,7 @@ fun AboutMe(){
                 .color(Theme.Secondary.rgb)
                 .toAttrs()
         ){
-            Text(LOREM_IPSUM_SHORT)
+            Text(About_Me_Description)
         }
         Skill.values().forEach{skill->
             SkillBar(name = skill.title,
