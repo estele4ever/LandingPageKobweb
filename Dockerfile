@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ./gradlew :site:kobwebExport -Pkobweb.export.layout=static
+RUN find /app/site/.kobweb/site -name "*.html"
 RUN find /app/site/.kobweb -maxdepth 3 -type d
 RUN ls -la /app/site/.kobweb/site || echo "DOSSIER INTROUVABLE"
 
