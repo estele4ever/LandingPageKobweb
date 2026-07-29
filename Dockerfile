@@ -16,5 +16,6 @@ RUN find /app/site/.kobweb -maxdepth 3 -type d
 RUN ls -la /app/site/.kobweb/site || echo "DOSSIER INTROUVABLE"
 
 FROM nginx:alpine
-COPY --from=build /app/site/.kobweb/site /usr/share/nginx/html
+COPY --from=build /app/site/.kobweb/site/pages/. /usr/share/nginx/html/
+COPY --from=build /app/site/.kobweb/site/resources/. /usr/share/nginx/html/
 EXPOSE 80
