@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN ./gradlew :site:kobwebExport -Pkobweb.export.layout=static
+RUN find /app/site/.kobweb -maxdepth 3 -type d
+RUN ls -la /app/site/.kobweb/site || echo "DOSSIER INTROUVABLE"
 
 FROM nginx:alpine
 COPY --from=build /app/site/.kobweb/site /usr/share/nginx/html
