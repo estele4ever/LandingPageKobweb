@@ -5,6 +5,7 @@ import com.stevdza.san.util.Constants.WEB_OCR
 import com.stevdza.san.util.Constants.WEB_Orion
 import com.stevdza.san.util.Constants.WEB_SITE
 import com.stevdza.san.util.Constants.WEB_Sgae
+import com.stevdza.san.util.Constants.WEB_WoadGame
 import com.stevdza.san.util.Res
 
 enum class Portfolio(
@@ -33,9 +34,9 @@ enum class Portfolio(
     ),
     Four(
         image = Res.Image.portfolio4,
-        title = "GPE service(private)",
-        description = "Web/Mobile App",
-        link = "/"
+        title = "Woad Game",
+        description = "Web App",
+        link = WEB_WoadGame
     ),
     Five(
         image = Res.Image.portfolio5,

@@ -4,6 +4,7 @@ package com.stevdza.san.util
 //constants
 object Constants{
     const val WEB_SITE = "https://www.facebook.com/ngnemie.estele"
+    const val WEB_WoadGame =  "https://hello-word-woad.vercel.app/"
     const val WEB_OCR = "https://github.com/estele4ever/OCRService"
     const val WEB_HomeGaz = "https://homegaz.horion.io/"
     const val WEB_Sgae = "https://sgae-1.onrender.com"
